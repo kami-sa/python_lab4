@@ -1,5 +1,5 @@
 from random import choice
-from string import ascii_letters, digits
+from string import digits, ascii_lowercase, ascii_uppercase
 
 
 error = ('I', 'l', 'o', 'O', '1', '0')
@@ -9,11 +9,13 @@ def generate_password(m):
     password = ""
     count = 0
     while count != m:
-        flag = choice([True, False])
-        if flag:
-            symbol = choice(ascii_letters)
-        else:
+        flag = choice([0, 1, 2])
+        if flag == 0:
+            symbol = choice(ascii_lowercase)
+        elif flag == 1:
             symbol = choice(digits)
+        else:
+            symbol = choice(ascii_uppercase)
         if symbol not in error and symbol not in password:
             password += symbol
             count += 1
