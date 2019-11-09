@@ -12,7 +12,7 @@ def generate_password(m):
             symbol = random.choice(string.ascii_letters)
         else:
             symbol = random.choice(string.digits)
-        if symbol not in error:
+        if symbol not in error and symbol not in password:
             password += symbol
             count += 1
     return password
